@@ -3,7 +3,7 @@
 
 #### Task1: Create the below form using HTML
 
-![image](/html-form1.png?raw=true "Optional Title")
+![Screenshot](html-form1.png)
 
 ```
 <!DOCTYPE HTML>
