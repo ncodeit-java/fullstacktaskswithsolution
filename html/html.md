@@ -1,26 +1,64 @@
-### :camel: SQL examples
+### :camel: HTML examples
 ---
 
 #### Task1: Create a class Dog, that has 3 properties (class fields) breed, age and colour with behaviours (class method) bark and sleep.Write a class with main method and create the dog object and invoke the methods
 
 ```
-class Dog {
-
-	// Properties
-	String breed;
-	int age;
-	String colour;
-
-	// Behaviors ( methods)
-
-	public void bark() {
-		system.out.println("barking");
-	}
-
-	public void sleep() {
-		system.out.println("sleep");
-	}
-}
+<!DOCTYPE HTML>
+<!-- This is how HTML comments look like -->
+<html>
+<!-- the title will appear on the page-->
+<head>
+<title>Employee Interests Survey</title>
+</head>
+<body>
+<!-- as it is a survey form, we will need to submit the details, hence we use form -->
+<!-- We can give absolute url, or relative url like /nextpage.jsp, and specify POST or GET method -->
+<form action="http://google.co.in">
+<!-- If we remove this, every thing will move to the left of the page-->
+<div align="center">
+<!--Adds a heading to the form-->
+<h1>Employee Interests Survey form</h1>
+Enter your name:
+<!-- Input type text for small texts, specify size -->
+<input type="text" name="UserName" size=35 maxlength=35 value="">
+<!--Adds spaces - remove and see what happens -->
+</br></br>
+Enter your department:
+<input type="text" name="Deptt" size=35 maxlength=35 value=""> </br> </br>
+Tell us a little about yourself:
+<!-- For writing lot of text like descriptions with text wrapping,
+if you dont want text wrapping, you can add wrap = "off" (horizontal scrollbar -->
+<textarea name="Comments" cols=30 rows=4></textarea> </br> </br>
+Do you exercise at home?
+<!-- Radio buttons help you choose one out of the many values -->
+<input type="radio" name="exe" value=1>Yes
+<input type="radio" name="exe" value=2>No
+</p>
+How do you like to read about your favorite topics?
+<p>
+<!--Checkbox lets you select multiple options -->
+<input type="checkbox" name="Books">Books
+<input type="checkbox" name="Web">Online resources
+<input type="checkbox" name="Phone">Phone apps
+<input type="checkbox" name="Magazines">Magazines
+</p>
+What genre of movies do you like?
+<!--Select box lets you choose one of the multiple dropdown options-->
+<select name="moviepref" ><option>
+<option value=1 selected = "true">comedy
+<option value=2 >romance
+<option value=3 >thriller
+<option value=4 >horror
+<option value=5 >biopic
+</select>
+</br></br>
+<!--submits the information entered in the form by the user -->
+<input type=submit value="Submit form">
+</div>
+</form>
+</body>
+</html>
 
 ```
 
@@ -29,98 +67,228 @@ class Dog {
 	*table: salesman with columns salesman_id,name,city,commission
 
 ```
-class Car {
-	private int price;
-	private String model;
-
-	public void start() {
-		System.out.println("Car Start");
-	}
-
-	public void stop() {
-		System.out.println("Car stop");
-	}
-
-	public void move() {
-		System.out.println("Car move");
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
+<html>
+<head>
+<title></title>
+<!-- Apply styles to html elements -->
+<style>
+*{
+margin:0; padding:0; boxsizing:border-box;
 }
-
-class Driver {
-	private String name;
-	private int age;
-
-	public void drive() {
-
-		System.out.println("Driver drive car");
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
+header{
+width: 100%; height: 100vh;
+background-color: white;
+background-repeat: no-repeat;
+background-size: cover;
 }
+nav{
+width: 100%; height: 15vh;
+background: black;
+display: flex; justify-content: space-between;
+align-items: center;
+}
+nav .mainmenu{
+width: 40%;
+display: flex; justify-content: space-around;
+}
+main{
+width: 100%; height: 85vh;
+display: flex; justify-content: center;
+align-items: center;
+text-align: center;
+}
+section h3{
+letter-spacing: 3px; font-weight: 200;
+}
+section h1{
+text-transform: uppercase;
+}
+section div{
+animation:changeborder 10s infinite linear;
+border: 7px solid red;
+}
+@keyframes changeborder{
+0%
+20%
+40%
+}
+</style>
+</head>
+<body>
+<!--Let us create a simple menu using the navigation tags-->
+<!--Use header to indicate that manu will be a part of header -->
+<header>
+<nav>
+<div class = "logo" <h3 style="color:white;">MYLOGO</h3></div>
+<!--Lets define the menu items now-->
+<div class = "mainmenu">
+<a href="https://hackr.io/tutorials/learn-html-5">Home</a>
+<a href="https://hackr.io/tutorials/learn-html-5">About Us</a>
+<a href="https://hackr.io/tutorials/learn-html-5">Contact Us</a>
+</div>
+</nav>
+<!--Let us create the main section now, if you are not using html5, use div tags-->
+<main>
+<section>
+<!--Check out the styling elements for this div class - change_text -->
+<div class = "change_text"><b>WELCOME TO XXX ELECTRONICS</b></div>
+<!--make text italic-->
+<p><i>All your electronics needs in one place</i></p><br>
+<!--create a button, if there is a form, you can specify an action on click-->
+<input type = button value = "view more">
+</section>
+</main>
+</header>
+</body>
+</html>
 
 ```
 
 #### Task3: Create a class called circle with two variables radius and colour and add default constructor and constructor with arguments and add methods getRadius() and getArea() (Area formaula - radius*radius*Math.PI). Create a main class to create a circle object and print the data
 
 ```
-public class Circle {  
-   // private instance variable, not accessible from outside this class
-   private double radius;
-   private String color;
-   
-
-   public Circle() {  // 1st (default) constructor
-      radius = 1.0;
-      color = "red";
-   }
-   
-   /** Constructs a Circle instance with the given radius and default color */
-   public Circle(String c,double r) {  // 2nd constructor
-      radius = r;
-      color = c;
-   }
-   
-   /** Returns the radius */
-   public double getRadius() {
-     return radius; 
-   }
-   
-   /** Returns the area of this Circle instance */
-   public double getArea() {
-      return radius*radius*Math.PI;
-   }
-}
+<html>
+    <head>
+        <script>
+            function GEEKFORGEEKS() {
+                var name =
+                    document.forms.RegForm.Name.value;
+                var email =
+                    document.forms.RegForm.EMail.value;
+                var phone =
+                    document.forms.RegForm.Telephone.value;
+                var what =
+                    document.forms.RegForm.Subject.value;
+                var password =
+                    document.forms.RegForm.Password.value;
+                var address =
+                    document.forms.RegForm.Address.value;
+                var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
+                var regPhone=/^\d{10}$/;                                        // Javascript reGex for Phone Number validation.
+                var regName = /\d+$/g;                                    // Javascript reGex for Name validation
+ 
+                if (name == "" || regName.test(name)) {
+                    window.alert("Please enter your name properly.");
+                    name.focus();
+                    return false;
+                }
+ 
+                if (address == "") {
+                    window.alert("Please enter your address.");
+                    address.focus();
+                    return false;
+                }
+                 
+                if (email == "" || !regEmail.test(email)) {
+                    window.alert("Please enter a valid e-mail address.");
+                    email.focus();
+                    return false;
+                }
+                  
+                if (password == "") {
+                    alert("Please enter your password");
+                    password.focus();
+                    return false;
+                }
+ 
+                if(password.length <6){
+                    alert("Password should be atleast 6 character long");
+                    password.focus();
+                    return false;
+ 
+                }
+                if (phone == "" || !regPhone.test(phone)) {
+                    alert("Please enter valid phone number.");
+                    phone.focus();
+                    return false;
+                }
+ 
+                if (what.selectedIndex == -1) {
+                    alert("Please enter your course.");
+                    what.focus();
+                    return false;
+                }
+ 
+                return true;
+            }
+        </script>
+ 
+        <style>
+            div {
+                box-sizing: border-box;
+                width: 100%;
+                border: 100px solid black;
+                float: left;
+                align-content: center;
+                align-items: center;
+            }
+ 
+            form {
+                margin: 0 auto;
+                width: 600px;
+            }
+        </style>
+    </head>
+ 
+    <body>
+        <h1 style="text-align: center;">REGISTRATION FORM</h1>
+        <form name="RegForm" onsubmit="return GEEKFORGEEKS()" method="post">
+             
+<p>Name: <input type="text"
+                            size="65" name="Name" /></p>
+ 
+            <br />
+             
+<p>Address: <input type="text"
+                            size="65" name="Address" />
+        </p>
+ 
+            <br />
+             
+<p>E-mail Address: <input type="text"
+                            size="65" name="EMail" /></p>
+ 
+            <br />
+             
+<p>Password: <input type="text"
+                        size="65" name="Password" /></p>
+ 
+            <br />
+             
+<p>Telephone: <input type="text"
+                        size="65" name="Telephone" /></p>
+ 
+            <br />
+ 
+             
+<p>
+                SELECT YOUR COURSE
+                <select type="text" value="" name="Subject">
+                    <option>BTECH</option>
+                    <option>BBA</option>
+                    <option>BCA</option>
+                    <option>B.COM</option>
+                    <option>GEEKFORGEEKS</option>
+                </select>
+            </p>
+ 
+            <br />
+            <br />
+             
+<p>Comments: <textarea cols="55"
+                            name="Comment"> </textarea></p>
+ 
+             
+<p>
+                <input type="submit"
+                    value="send" name="Submit" />
+                <input type="reset"
+                    value="Reset" name="Reset" />
+            </p>
+ 
+        </form>
+    </body>
+</html>
 ```
 
 #### Task4: Design a class called Rectangle, which models a rectangle with a length and a width (in float). Create a method getArea to calculate the area of the rectangle
