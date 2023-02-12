@@ -143,6 +143,7 @@ export class CalcComponent {
 ![Screenshot](heros-list.png)
 
 ```
+https://github.com/fullstackproj/angular-hero-app
 
 useful commands
 
