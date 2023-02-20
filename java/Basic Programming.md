@@ -52,29 +52,3 @@ Sub-arrays with 0 sum : [1, 2, -3]
 Sub-arrays with 0 sum : [2, -2]
 
 ```
-
-#### Task10: Object
-```
-<html>
-<body>
-<script>  
-emp={id:102,name:"Shyam Kumar",salary:40000}  
-document.write(emp.id+" "+emp.name+" "+emp.salary);  
-</script>
-</body>
-</html>
-```
-
-#### Task11: Array
-```
-<html>
-<body>
-<script>  
-var emp=["Sonoo","Vimal","Ratan"];  
-for (i=0;i<emp.length;i++){  
-document.write(emp[i] + "<br/>");  
-}  
-</script>  
-</body>
-</html>
-```

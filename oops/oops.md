@@ -1,4 +1,4 @@
-### :camel: SQL examples
+### :camel: OOPs examples
 ---
 
 #### Task1: Create a class Dog, that has 3 properties (class fields) breed, age and colour with behaviours (class method) bark and sleep.Write a class with main method and create the dog object and invoke the methods
