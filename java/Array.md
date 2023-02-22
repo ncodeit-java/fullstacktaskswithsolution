@@ -97,85 +97,6 @@ public class Main
 #### Task4: Find the second largest element in an array
 
 ```
-import java.util.Scanner;
-public class Exercise7 {
-
-    
-  public static void main(String[] strings) {
-
-        Scanner input = new Scanner(System.in);
-
-        int number_Of_DaysInMonth = 0; 
-        String MonthOfName = "Unknown";
-
-        System.out.print("Input a month number: ");
-        int month = input.nextInt();
-
-        System.out.print("Input a year: ");
-        int year = input.nextInt();
-
-        switch (month) {
-            case 1:
-                MonthOfName = "January";
-                number_Of_DaysInMonth = 31;
-                break;
-            case 2:
-                MonthOfName = "February";
-                if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
-                    number_Of_DaysInMonth = 29;
-                } else {
-                    number_Of_DaysInMonth = 28;
-                }
-                break;
-            case 3:
-                MonthOfName = "March";
-                number_Of_DaysInMonth = 31;
-                break;
-            case 4:
-                MonthOfName = "April";
-                number_Of_DaysInMonth = 30;
-                break;
-            case 5:
-                MonthOfName = "May";
-                number_Of_DaysInMonth = 31;
-                break;
-            case 6:
-                MonthOfName = "June";
-                number_Of_DaysInMonth = 30;
-                break;
-            case 7:
-                MonthOfName = "July";
-                number_Of_DaysInMonth = 31;
-                break;
-            case 8:
-                MonthOfName = "August";
-                number_Of_DaysInMonth = 31;
-                break;
-            case 9:
-                MonthOfName = "September";
-                number_Of_DaysInMonth = 30;
-                break;
-            case 10:
-                MonthOfName = "October";
-                number_Of_DaysInMonth = 31;
-                break;
-            case 11:
-                MonthOfName = "November";
-                number_Of_DaysInMonth = 30;
-                break;
-            case 12:
-                MonthOfName = "December";
-                number_Of_DaysInMonth = 31;
-        }
-        System.out.print(MonthOfName + " " + year + " has " + number_Of_DaysInMonth + " days\n");
-    }
-}
-
-```
-
-#### Task5: Find the second smallest element in an array
-
-```
 public class FindSecondLargest {
 
     static int findSecondLargest(int a[], int n) {
@@ -210,6 +131,58 @@ public class FindSecondLargest {
 
         System.out.println("The second largest element in the array is: " + answer);
 
+    }
+}
+
+```
+
+#### Task5: Find the second smallest element in an array
+
+```
+public class FindSecondSmallest {
+
+    /* Function to print first smallest and second smallest
+      elements */
+    static void print2Smallest(int arr[])
+    {
+        int first, second, arr_size = arr.length;
+ 
+        /* There should be atleast two elements */
+        if (arr_size < 2)
+        {
+            System.out.println(" Invalid Input ");
+            return;
+        }
+ 
+        first = second = Integer.MAX_VALUE;
+        for (int i = 0; i < arr_size ; i ++)
+        {
+            /* If current element is smaller than first
+              then update both first and second */
+            if (arr[i] < first)
+            {
+                second = first;
+                first = arr[i];
+            }
+ 
+            /* If arr[i] is in between first and second
+               then update second  */
+            else if (arr[i] < second && arr[i] != first)
+                second = arr[i];
+        }
+        if (second == Integer.MAX_VALUE)
+            System.out.println("There is no second" +
+                               "smallest element");
+        else
+            System.out.println("The smallest element is " +
+                               first + " and second Smallest" +
+                               " element is " + second);
+    }
+ 
+    public static void main (String[] args)
+    {
+        int arr[] = {12, 13, 1, 10, 34, 1};
+        print2Smallest(arr);
     }
 }
 
