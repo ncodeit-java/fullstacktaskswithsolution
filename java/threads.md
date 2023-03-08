@@ -305,66 +305,132 @@ class MyTask extends Thread {
 }
 ```
 
-#### Task7: Write a generic method to find the largest of three comparable object using multiple bound parameters
+#### Task7: Create a list of String and print the values in the list using CompletableFuture RunAsync
 
 ```
-public class GenericsTester {
-   public static void main(String[] args) {
-      System.out.printf("Max of %d, %d and %d is %d\n\n", 
-         3, 4, 5, maximum( 3, 4, 5 ));
+package com.ncodeit.threads.completablefuture;
 
-      System.out.printf("Max of %.1f,%.1f and %.1f is %.1f\n\n",
-         6.6, 8.8, 7.7, maximum( 6.6, 8.8, 7.7 ));
-   }
-
-   public static <T extends Number 
-      & Comparable<T>> T maximum(T x, T y, T z) {
-      T max = x;      
-      if(y.compareTo(max) > 0) {
-         max = y;   
-      }
-
-      if(z.compareTo(max) > 0) {
-         max = z;                    
-      }
-      return max;      
-   }
-```
-
-#### Task8: create class cat which extends animal, dog extends animal and create a generic method to add cat objects using lower bound 
-
-```
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
-public class GenericsTester {
+public class Example5 {
 
-   public static void addCat(List<? super Cat> catList) {
-      catList.add(new RedCat());
-      System.out.println("Cat Added");
-   }
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
+		
+		Runnable runnable=()->{
+			System.out.println("Runnable Thread Name:"+Thread.currentThread().getName());
+			List<String> stList=Arrays.asList("emp1","emp2","emp3");
+			printElements(stList);
+		};
+		
+		CompletableFuture<Void> completableFuture=CompletableFuture.runAsync(runnable);
+		
+		completableFuture.get();
+		
+		System.out.println("Main Thread Name:"+Thread.currentThread().getName());
+		System.out.println("Main Finished");
+	}
 
-   public static void main(String[] args) {
-      List<Animal> animalList= new ArrayList<Animal>();
-      List<Cat> catList= new ArrayList<Cat>();
-     
-      List<Dog> dogList= new ArrayList<Dog>();
-
-      //add list of super class Animal of Cat class
-      addCat(animalList);
-
-      //add list of Cat class
-      addCat(catList);
-
-      //compile time error
-      //can not add list of subclass Dog of Superclass Animal of Cat class
-      //addCat.addMethod(dogList); 
-   }
+	private static void printElements(List<String> stList) {
+		for(String s:stList){
+			System.out.println(s);
+		}
+		
+	}
 }
-class Animal {}
 
-class Cat extends Animal {}
-
-class Dog extends Animal {}
 ```
 
+#### Task8: Create a list of Strings("Julie","John","Bob") and check if John is prsent, if prsent print "Equal Found" using CompletableFuture SupplyAsync and thenAccept
+
+```
+package com.ncodeit.threads.completablefuture;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+public class Example6 {
+
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
+		
+		Supplier<List<String>> sp=()->{
+			System.out.println("Supplier Thread Name:"+Thread.currentThread().getName());
+			List<String> stList=Arrays.asList("Julie","John","Bob");
+			return stList;
+		};
+		
+		Consumer<List<String>> c1=(r)->{
+			for(String s:r){
+				if("John".equals(s)){
+					System.out.println("Equal Found");
+				}
+			}
+		};
+		
+		CompletableFuture<Void> f1=CompletableFuture.supplyAsync(sp)
+					.thenAccept(c1);
+		System.out.println(f1.get());
+		System.out.println("Main Thread Name:"+Thread.currentThread().getName());
+		System.out.println("Main Finished");		
+		
+	}
+
+}
+
+```
+
+#### Task9: Print Hello World using CompletableFuture SupplyAsync and thenAccept
+
+```
+public class Example10 {
+	
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
+		
+		Supplier<String> s1=()->{
+			System.out.println("Supplier thread "+Thread.currentThread().getName());
+			return "Hello";
+		};
+
+		CompletableFuture.supplyAsync(s1)
+				.thenApply(r->{
+					System.out.println("thenApply thread "+Thread.currentThread().getName());
+					return r+" World";
+				});
+		
+	}
+
+}
+
+```
+
+#### Task10: Print Hello World using CompletableFuture SupplyAsync and thenAccept
+
+```
+public class Example11 {
+		
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
+		
+		Supplier<Integer> s1=()->{
+			System.out.println("Supplier thread "+Thread.currentThread().getName());
+			return 10;
+		};
+
+		CompletableFuture.supplyAsync(s1)
+				.thenApply(r->{
+					System.out.println("thenApply thread "+Thread.currentThread().getName());
+					return r/0;
+				}).exceptionally(ex->{
+					System.out.println(ex.getMessage());
+					return 0; // as it needs to be return an int...returned 0
+				});
+		
+	}
+
+}
+```

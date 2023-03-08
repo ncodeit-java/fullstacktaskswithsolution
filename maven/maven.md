@@ -36,8 +36,8 @@
 #### Task10: Clean the directories created by maven during project build in eclipse
 
 	
-### Task 11: In eclipse, Create a sample project using 'maven-archetype-webapp' 
+#### Task 11: In eclipse, Create a sample project using 'maven-archetype-webapp' 
 
 
-### Task12: In eclipse,run the install using maven and generate the war
+#### Task12: In eclipse,run the install using maven and generate the war
 	
