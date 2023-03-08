@@ -135,7 +135,7 @@ class SumFirstNumbers implements Callable<Integer> {
 
 ```
 
-#### Task6: Cacel the task while calculating the sum of n numbers using Executor Service
+#### Task4: Cacel the task while calculating the sum of n numbers using Executor Service
 
 ```
 package com.example;
@@ -199,7 +199,7 @@ class SumFirstNumbers implements Callable<Integer> {
 
 ```
 
-#### Task7: Terminate all tasks using shutdownNow method using Executor Service
+#### Task5: Terminate all tasks using shutdownNow method using Executor Service
 
 ```
 import java.util.List;
@@ -265,7 +265,7 @@ class SumFirstNumbers implements Callable<Integer> {
 }
 ```
 
-#### Task8: Create class which extends Thread, override run method and throw RuntimeException and use setDefaultUncaughtExceptionHandler to catch the exception
+#### Task6: Create class which extends Thread, override run method and throw RuntimeException and use setDefaultUncaughtExceptionHandler to catch the exception
 
 ```
 import java.lang.Thread.UncaughtExceptionHandler;
@@ -305,7 +305,7 @@ class MyTask extends Thread {
 }
 ```
 
-#### Task9: Write a generic method to find the largest of three comparable object using multiple bound parameters
+#### Task7: Write a generic method to find the largest of three comparable object using multiple bound parameters
 
 ```
 public class GenericsTester {
@@ -331,7 +331,7 @@ public class GenericsTester {
    }
 ```
 
-#### Task10: create class cat which extends animal, dog extends animal and create a generic method to add cat objects using lower bound 
+#### Task8: create class cat which extends animal, dog extends animal and create a generic method to add cat objects using lower bound 
 
 ```
 import java.util.ArrayList;
