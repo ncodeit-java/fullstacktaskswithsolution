@@ -1,7 +1,16 @@
 ### :camel: Java examples
 ---
 
-#### Task1: Write a program to implement Runnable using lambda expression
+#### Task1: Write a program to implement Runnable Functional interface using lambda expression
+
+	* Hint - write any few lines of code inside run method and convert to lambda expression
+
+#### Task2: Write a Functional Interface with method signature - String reverseString(String s) and implement interface using lambda expression
+
+#### Task3: Write a Functional Interface with method signature - String convertToUppercase(String lowercase) and implement interface using lambda expression
+
+
+#### Task4: Write a program to count the empty strings in the given list using lambda expression
 
 	*List<String> strList = Arrays.asList("abc", "", "bcd", "", "defg", "jk"); 
 
@@ -19,7 +28,7 @@ public class Java8Streams1{
 
 ```
 
-#### Task2: Write a program to iterate over list using lambda expression
+#### Task5: Write a program to iterate over list using lambda expression
 
 ```
 import java.util.Arrays;
@@ -34,7 +43,7 @@ public class Java8lambda{
 
 ```
 
-#### Task3: Write a program to create a method filter that takes list of strings and predicate(name starts with J) and filter the data using predicate and print
+#### Task6: Write a program to create a method filter that takes list of strings and predicate(name starts with J) and filter the data using predicate and print
 
 ```
 import java.util.Arrays;
@@ -59,7 +68,7 @@ public class Java8lambda {
 }
 ```
 
-#### Task4: Write a program to create a method filter that takes list of strings and predicate(name starts with J & length more than 4) and filter the data using predicate and print
+#### Task7: Write a program to create a method filter that takes list of strings and predicate(name starts with J & length more than 4) and filter the data using predicate and print
 ```
 import java.util.Arrays;
 import java.util.List;
@@ -86,7 +95,7 @@ public class Java8lambda {
 
 ```
 
-#### Task5: Write a program to Create a List with String more than 2 characters
+#### Task8: Write a program to Create a List with String more than 2 characters
 
 ```
 import java.time.LocalDateTime;
@@ -102,7 +111,7 @@ public class SupplierDemo {
 
 ```
 
-#### Task6: Write a program to use supplier to get the current date
+#### Task9: Write a program to use supplier to get the current date
 
 ```
 import java.util.Arrays;
@@ -120,7 +129,7 @@ public class Java8Streams{
 
 ```
 
-#### Task7: Write a program to get list of products using supplier
+#### Task10: Write a program to get list of products using supplier
 
 
 ```
@@ -198,7 +207,7 @@ public class SupplierDemo {
 
 ```
 
-#### Task8: Write a program to find the length of the string using function
+#### Task11: Write a program to find the length of the string using function
 
 ```
 import java.util.function.Function;
@@ -214,7 +223,7 @@ public class FunctionDemo {
 }
 ```
 
-#### Task9: Write a program to convert a list of strings to map with key as string and value as length using function
+#### Task12: Write a program to convert a list of strings to map with key as string and value as length using function
 
 ```
 import java.util.Arrays;
@@ -244,7 +253,7 @@ public class FunctionDemo {
 }
 ```
 
-#### Task10: Write a program to convert a list of lowercase strings to list of uppercase strings
+#### Task13: Write a program to convert a list of lowercase strings to list of uppercase strings
 
 ```
 import java.util.Arrays;

@@ -72,11 +72,11 @@ class Main
      public static void main(String args[])
      {  
            MyGenericClass<Integer> mint=new MyGenericClass<Integer>();  
-           m_int.add(2);
+           mint.add(2);
            MyGenericClass<String> mstr=new MyGenericClass<String>();  
            mstr.add("SoftwaretestingHelp");
  
-           System.out.println("Member of MyGenericClass<Integer>:" + m_int.get());
+           System.out.println("Member of MyGenericClass<Integer>:" + mint.get());
            System.out.println("Member of MyGenericClass<String>:" + mstr.get());
      }
 } 
