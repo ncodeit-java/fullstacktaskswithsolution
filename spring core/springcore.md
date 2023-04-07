@@ -52,9 +52,9 @@ public class Car {
         gear.changeGear(gearNumber);
     }
 }
-
 ```
-_In this implementation, the Car class has three dependencies: Engine, Brakes, and Gear. These dependencies can be injected using constructor injection, setter injection, or field injection, as demonstrated in the code. The class also has some basic methods to start the car, stop the car, and change gears_
+*In this implementation, the Car class has three dependencies: Engine, Brakes, and Gear. These dependencies can be injected using constructor injection, setter injection, or field injection, as demonstrated in the code. The class also has some basic methods to start the car, stop the car, and change gears.*
+
 ---
 
 #### Task2: Create a new instance of Mobile using @Bean and @Configuration annotations and print the value of the instance variable like mobileType which is passed as a constructor argument.
