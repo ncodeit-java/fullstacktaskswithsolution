@@ -194,6 +194,8 @@ To show how to autowire the `address` variable in the `Bank` class, we have thre
 
 Note that we don't need to provide any configuration for this code since Spring will automatically search for and create the necessary beans based on the annotations and class definitions.
 
+---
+
 #### Task4: Take a School Class and show all the 3 ways of creating Movie bean a. using xml config b. using @Bean and @Configuration c. Using @Component
 
 #### Task5: Write a Movie class showing before and after initialization using MovieBeanPostProcessor by implementing BeanPostProcessor Interface
