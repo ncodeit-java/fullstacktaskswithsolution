@@ -99,80 +99,98 @@ _In this implementation, we create a new configuration class MobileConfig that d
 	
 #### Task3: Take a Bank Class with BankName (String) and Address(Class) as instance variables and show Address autowired by Name , Type and Constructor
 ```
-public class Address {
-    private String city;
-    private String state;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-    public Address(String city, String state) {
+class Address {
+    String street;
+    String city;
+    String state;
+    String country;
+    String pincode;
+
+    public Address(String street, String city, String state, String country, String pincode) {
+        this.street = street;
         this.city = city;
         this.state = state;
+        this.country = country;
+        this.pincode = pincode;
     }
 
-    // Getters and setters
+    public String toString() {
+        return street + ", " + city + ", " + state + ", " + country + ", " + pincode;
+    }
 }
 
-public class Bank {
-    private String bankName;
-    private Address address;
+class Bank {
+    String bankName;
+
+    @Autowired
+    Address address;
 
     public Bank(String bankName) {
         this.bankName = bankName;
     }
 
-    // Setters
+    public String toString() {
+        return bankName + "\n" + address;
+    }
+}
 
-    /**
-     * Sets the {@code address} variable using the @Autowired annotation with the byName attribute.
-     * This means that Spring will search for a bean with the same name as the parameter (address)
-     * in the Spring context and inject it into the method.
-     */
-    @Autowired
-    public void setAddressByName(Address address) {
-        this.address = address;
+@Configuration
+class AppConfig {
+
+    @Bean(name = "addressByName")
+    public Address getAddressByName() {
+        return new Address("ABC Street", "XYZ City", "State1", "Country1", "123456");
     }
 
-    /**
-     * Sets the {@code address} variable using the @Autowired annotation with the byType attribute.
-     * This means that Spring will search for a bean of type Address in the Spring context and
-     * inject it into the method.
-     */
-    @Autowired
-    public void setAddressByType(Address address) {
-        this.address = address;
+    @Bean(name = "addressByType")
+    public Address getAddressByType() {
+        return new Address("PQR Street", "DEF City", "State2", "Country2", "789012");
     }
 
-    /**
-     * Bank constructor which sets the {@code address} variable using the @Autowired annotation.
-     * Since this constructor is annotated with @Autowired, Spring will automatically inject a bean
-     * of type Address into the constructor when creating a new instance of Bank.
-     */
-    @Autowired
-    public Bank(Address address) {
-        this.address = address;
+    @Bean(name = "addressByConstructor")
+    public Address getAddressByConstructor() {
+        return new Address("LMN Street", "GHI City", "State3", "Country3", "345678");
     }
 
-    // Getters and setters
+    @Bean(name = "bank")
+    public Bank getBank() {
+        return new Bank("ABC Bank");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(AppConfig.class);
+        context.refresh();
+        Bank bank = (Bank) context.getBean("bank");
+        System.out.println("Bank details - Autowired by Name:");
+        System.out.println(bank);
+
+        Bank bankByType = context.getBean(Bank.class);
+        System.out.println("\nBank details - Autowired by Type:");
+        System.out.println(bankByType);
+
+        context.close();
+    }
 }
 ```
-In this code, we have a Bank class with bankName and address instance variables. We also have an Address class with city and state instance variables.
+In this code, we have a `Bank` class with `bankName` and `address` instance variables. We also have an `Address` class with `city` and `state` instance variables.
 
-To show how to autowire the address variable in the Bank class, we have three methods:
+To show how to autowire the `address` variable in the `Bank` class, we have three methods:
 
-setAddressByName: This method takes an Address parameter and sets it to the address variable using the @Autowired annotation with the byName attribute. This means that Spring will search for a bean with the same name as the parameter (address) in the Spring context and inject it into the method.
+1.  `setAddressByName`: This method takes an `Address` parameter and sets it to the `address` variable using the `@Autowired` annotation with the `byName` attribute. This means that Spring will search for a bean with the same name as the parameter (`address`) in the Spring context and inject it into the method.
+    
+2.  `setAddressByType`: This method takes an `Address` parameter and sets it to the `address` variable using the `@Autowired` annotation with the `byType` attribute. This means that Spring will search for a bean of type `Address` in the Spring context and inject it into the method.
+    
+3.  `Bank` constructor: This constructor takes an `Address` parameter and sets it to the `address` variable using the `@Autowired` annotation. Since this constructor is annotated with `@Autowired`, Spring will automatically inject a bean of type `Address` into the constructor when creating a new instance of `Bank`.
+    
 
-setAddressByType: This method takes an Address parameter and sets it to the address variable using the @Autowired annotation with the byType attribute. This means that Spring will search for a bean of type Address in the Spring context and inject it into the method.
-
-Bank constructor: This constructor takes an Address parameter and sets it to the address variable using the @Autowired annotation. Since this constructor is annotated with @Autowired, Spring will automatically inject a bean of type Address into the constructor when creating a new instance of Bank.
-
-Note that we don't need to provide any configuration for this code since Spring will automatically search for and create the necessary beans based on the annotations and class definitions
-
-
-
-
-
-
-
----
+Note that we don't need to provide any configuration for this code since Spring will automatically search for and create the necessary beans based on the annotations and class definitions.
 
 #### Task4: Take a School Class and show all the 3 ways of creating Movie bean a. using xml config b. using @Bean and @Configuration c. Using @Component
 
