@@ -92,9 +92,11 @@ public class Mobile {
         this.mobileType = mobileType;
     }
 }
-
 ```
-_In this implementation, we create a new configuration class MobileConfig that declares a @Bean method called mobile which returns a new instance of the Mobile class with the argument "smartphone" passed to its constructor. We then create a new AnnotationConfigApplicationContext and pass in the MobileConfig class to create a new Spring context. Finally, we get the Mobile bean from the context and print out the value of the mobileType instance variable. When you run this code, it should print "smartphone" to the console_
+- In this implementation, we create a new configuration class `MobileConfig` that declares a `@Bean` method called `mobile` which returns a new instance of the `Mobile` class with the argument "smartphone" passed to its constructor. 
+- We then create a new `AnnotationConfigApplicationContext` and pass in the `MobileConfig` class to create a new Spring context. 
+- Finally, we get the `Mobile` bean from the context and print out the value of the `mobileType` instance variable. 
+- When you run this code, it should print "smartphone" to the console.
 ---
 	
 #### Task3: Take a Bank Class with BankName (String) and Address(Class) as instance variables and show Address autowired by Name , Type and Constructor
