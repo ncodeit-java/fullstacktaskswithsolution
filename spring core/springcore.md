@@ -2,6 +2,58 @@
 ---
 
 #### Task1: Write a Car class which has an Engine, Brakes, Gear classes as a dependencies which can be injected by using constructor, setter and field
+```
+public class Car {
+    private Engine engine;
+    private Brakes brakes;
+    private Gear gear;
+
+    // Constructor injection
+    public Car(Engine engine, Brakes brakes, Gear gear) {
+        this.engine = engine;
+        this.brakes = brakes;
+        this.gear = gear;
+    }
+
+    // Setter injection
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void setBrakes(Brakes brakes) {
+        this.brakes = brakes;
+    }
+
+    public void setGear(Gear gear) {
+        this.gear = gear;
+    }
+
+    // Field injection
+    @Autowired
+    private Engine engine;
+
+    @Autowired
+    private Brakes brakes;
+
+    @Autowired
+    private Gear gear;
+
+    // Other methods
+    public void start() {
+        engine.start();
+    }
+
+    public void stop() {
+        brakes.apply();
+        engine.stop();
+    }
+
+    public void changeGear(int gearNumber) {
+        gear.changeGear(gearNumber);
+    }
+}
+
+```
 
 #### Task2: Create a new instance of Mobile using @Bean and @Configuration annotations and print the value of the instance variable like mobileType which is passed as a constructor argument.
 	
