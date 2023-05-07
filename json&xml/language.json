@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Java",
+    "description": "Java is a class-based, object-oriented programming language."
+  },
+  {
+    "name": "Python",
+    "description": "Python is an interpreted, high-level and general-purpose programming language."
+  },
+  {
+    "name": "JS",
+    "description": "JS is a programming language that conforms to the ECMAScript specification."
+  }
+]
